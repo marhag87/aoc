@@ -12,5 +12,5 @@ pub(crate) fn day_1() {
         .collect();
     println!("max = {:?}", nums.iter().max());
     nums.sort();
-    eprintln!("top three = {:?}", nums.iter().rev().take(3).sum::<i32>());
+    println!("top three = {:?}", nums.iter().rev().take(3).sum::<i32>());
 }
