@@ -1,12 +1,7 @@
-use std::fs::File;
-use std::io::Read;
+use crate::input::input_as_string;
 
 pub(crate) fn day_1() {
-    let mut file = File::open("input/day_1.txt").expect("should be able to open file");
-    let mut contents = String::new();
-    file.read_to_string(&mut contents)
-        .expect("should be able to read input");
-    let mut nums: Vec<i32> = contents
+    let mut nums: Vec<i32> = input_as_string("day_1.txt")
         .split("\n\n")
         .map(|chunk| {
             chunk
