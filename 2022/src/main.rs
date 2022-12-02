@@ -9,7 +9,7 @@ use day_2::*;
 fn main() {
     println!("Day 1");
     day_1();
-    println!("");
+    println!();
 
     println!("Day 2");
     println!("{}", day_2_1(input_as_string("day_2.txt")));

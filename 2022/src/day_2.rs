@@ -16,7 +16,7 @@ pub(crate) fn day_2_1(input: String) -> u64 {
     use Pick::*;
     use State::*;
     input
-        .split("\n")
+        .split('\n')
         .map(|line| match line {
             "A X" => Rock as u64 + Draw as u64,
             "B X" => Rock as u64 + Loss as u64,
@@ -36,7 +36,7 @@ pub(crate) fn day_2_2(input: String) -> u64 {
     use Pick::*;
     use State::*;
     input
-        .split("\n")
+        .split('\n')
         .map(|line| match line {
             "A X" => Loss as u64 + Scissor as u64,
             "B X" => Loss as u64 + Rock as u64,
