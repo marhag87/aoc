@@ -1,40 +1,52 @@
+#[repr(u64)]
+enum Pick {
+    Rock = 1,
+    Paper = 2,
+    Scissor = 3,
+}
+
+#[repr(u64)]
+enum State {
+    Loss = 0,
+    Draw = 3,
+    Win = 6,
+}
+
 pub(crate) fn day_2_1(input: String) -> u64 {
+    use Pick::*;
+    use State::*;
     input
         .split("\n")
         .map(|line| match line {
-            // Rock: 1
-            "A X" => 4, // Rock
-            "B X" => 1, // Paper
-            "C X" => 7, // Scissor
-            // Paper: 2
-            "A Y" => 8, // Rock
-            "B Y" => 5, // Paper
-            "C Y" => 2, // Scissor
-            // Scissor: 3
-            "A Z" => 3, // Rock
-            "B Z" => 9, // Paper
-            "C Z" => 6, // Scissor
+            "A X" => Rock as u64 + Draw as u64,
+            "B X" => Rock as u64 + Loss as u64,
+            "C X" => Rock as u64 + Win as u64,
+            "A Y" => Paper as u64 + Win as u64,
+            "B Y" => Paper as u64 + Draw as u64,
+            "C Y" => Paper as u64 + Loss as u64,
+            "A Z" => Scissor as u64 + Loss as u64,
+            "B Z" => Scissor as u64 + Win as u64,
+            "C Z" => Scissor as u64 + Draw as u64,
             _ => 0,
         })
         .sum()
 }
 
 pub(crate) fn day_2_2(input: String) -> u64 {
+    use Pick::*;
+    use State::*;
     input
         .split("\n")
         .map(|line| match line {
-            // Loss: 0
-            "A X" => 3, // Rock, Scissor
-            "B X" => 1, // Paper, Rock
-            "C X" => 2, // Scissor, Paper
-            // Draw: 3
-            "A Y" => 4, // Rock, Rock
-            "B Y" => 5, // Paper, Paper
-            "C Y" => 6, // Scissor, Scissor
-            // Win: 6
-            "A Z" => 8, // Rock, Paper
-            "B Z" => 9, // Paper, Scissor
-            "C Z" => 7, // Scissor, Rock
+            "A X" => Loss as u64 + Scissor as u64,
+            "B X" => Loss as u64 + Rock as u64,
+            "C X" => Loss as u64 + Paper as u64,
+            "A Y" => Draw as u64 + Rock as u64,
+            "B Y" => Draw as u64 + Paper as u64,
+            "C Y" => Draw as u64 + Scissor as u64,
+            "A Z" => Win as u64 + Paper as u64,
+            "B Z" => Win as u64 + Scissor as u64,
+            "C Z" => Win as u64 + Rock as u64,
             _ => 0,
         })
         .sum()
