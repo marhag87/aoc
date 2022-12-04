@@ -43,9 +43,9 @@ pub(crate) fn day_3_2(input: String) -> u64 {
         .chunks(3)
         .into_iter()
         .map(|mut chunk| {
-            let first = chunk.nth(0).expect("should exist");
-            let second = chunk.nth(0).expect("should exist");
-            let third = chunk.nth(0).expect("should exist");
+            let first = chunk.next().expect("should exist");
+            let second = chunk.next().expect("should exist");
+            let third = chunk.next().expect("should exist");
             first
                 .chars()
                 .unique()
