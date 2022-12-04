@@ -31,12 +31,6 @@ pub(crate) fn day_3_1(input: String) -> u64 {
         .sum()
 }
 
-#[test]
-fn test_day_3_1() {
-    let input = "vJrwpWtwJgWrhcsFMMfFFhFp\njqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL\nPmmdzqPrVvPwwTWBwg\nwMqvLMZHhHMvwLHjbvcjnnSBnvTQFn\nttgJtRGJQctTZtZT\nCrZsJsPPZsGzwwsLwLmpwMDw".to_string();
-    assert_eq!(day_3_1(input), 157)
-}
-
 pub(crate) fn day_3_2(input: String) -> u64 {
     input
         .lines()
@@ -59,6 +53,12 @@ pub(crate) fn day_3_2(input: String) -> u64 {
                 .sum::<u64>()
         })
         .sum()
+}
+
+#[test]
+fn test_day_3_1() {
+    let input = "vJrwpWtwJgWrhcsFMMfFFhFp\njqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL\nPmmdzqPrVvPwwTWBwg\nwMqvLMZHhHMvwLHjbvcjnnSBnvTQFn\nttgJtRGJQctTZtZT\nCrZsJsPPZsGzwwsLwLmpwMDw".to_string();
+    assert_eq!(day_3_1(input), 157)
 }
 
 #[test]
