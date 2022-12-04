@@ -1,3 +1,6 @@
+#[macro_use]
+extern crate scan_fmt;
+
 mod day_1;
 mod day_2;
 mod day_3;
