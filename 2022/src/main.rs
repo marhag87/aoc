@@ -1,12 +1,14 @@
 mod day_1;
 mod day_2;
 mod day_3;
+mod day_4;
 mod input;
 
 use crate::input::input_as_string;
 use day_1::*;
 use day_2::*;
 use day_3::*;
+use day_4::*;
 
 fn main() {
     println!("Day 1");
@@ -21,4 +23,9 @@ fn main() {
     println!("Day 3");
     println!("{}", day_3_1(input_as_string("day_3.txt")));
     println!("{}", day_3_2(input_as_string("day_3.txt")));
+    println!();
+
+    println!("Day 4");
+    println!("{}", day_4_1(input_as_string("day_4.txt")));
+    println!("{}", day_4_2(input_as_string("day_4.txt")));
 }
