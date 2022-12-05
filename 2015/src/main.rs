@@ -5,11 +5,13 @@ mod day_1;
 mod day_2;
 mod day_3;
 // mod day_4;
+mod day_5;
 
 use day_1::*;
 use day_2::*;
 use day_3::*;
 // use day_4::*;
+use day_5::*;
 
 fn main() {
     println!("Day 1");
@@ -34,4 +36,10 @@ fn main() {
     // println!("{}", day_4_1(&day_4_input));
     // println!("{}", day_4_2(&day_4_input));
     // println!();
+
+    println!("Day 5");
+    let day_5_input = String::from_utf8_lossy(include_bytes!("../input/day_5.txt"));
+    println!("{}", day_5_1(&day_5_input));
+    println!("{}", day_5_2(&day_5_input));
+    println!();
 }
