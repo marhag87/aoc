@@ -4,10 +4,12 @@ extern crate scan_fmt;
 mod day_1;
 mod day_2;
 mod day_3;
+mod day_4;
 
 use day_1::*;
 use day_2::*;
 use day_3::*;
+use day_4::*;
 
 fn main() {
     println!("Day 1");
@@ -25,5 +27,11 @@ fn main() {
     let day_3_input = String::from_utf8_lossy(include_bytes!("../input/day_3.txt"));
     println!("{}", day_3_1(&day_3_input));
     println!("{}", day_3_2(&day_3_input));
+    println!();
+
+    println!("Day 4");
+    let day_4_input = String::from_utf8_lossy(include_bytes!("../input/day_4.txt"));
+    println!("{}", day_4_1(&day_4_input));
+    println!("{}", day_4_2(&day_4_input));
     println!();
 }
