@@ -41,7 +41,7 @@ fn parse_end_state(state: Vec<Vec<char>>) -> String {
         .collect()
 }
 
-pub(crate) fn day_5_1(input: String) -> String {
+pub(crate) fn day_5_1(input: &str) -> String {
     let mut input = input.split("\n\n");
     let start_state = input.next().expect("should have start state");
     let instructions = input.next().expect("should have instructions");
@@ -58,7 +58,7 @@ pub(crate) fn day_5_1(input: String) -> String {
     parse_end_state(state)
 }
 
-pub(crate) fn day_5_2(input: String) -> String {
+pub(crate) fn day_5_2(input: &str) -> String {
     let mut input = input.split("\n\n");
     let start_state = input.next().expect("should have start state");
     let instructions = input.next().expect("should have instructions");

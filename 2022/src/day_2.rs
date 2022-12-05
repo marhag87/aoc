@@ -12,7 +12,7 @@ enum State {
     Win = 6,
 }
 
-pub(crate) fn day_2_1(input: String) -> u64 {
+pub(crate) fn day_2_1(input: &str) -> u64 {
     use Pick::*;
     use State::*;
     input
@@ -32,7 +32,7 @@ pub(crate) fn day_2_1(input: String) -> u64 {
         .sum()
 }
 
-pub(crate) fn day_2_2(input: String) -> u64 {
+pub(crate) fn day_2_2(input: &str) -> u64 {
     use Pick::*;
     use State::*;
     input

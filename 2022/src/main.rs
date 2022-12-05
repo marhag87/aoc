@@ -6,9 +6,7 @@ mod day_2;
 mod day_3;
 mod day_4;
 mod day_5;
-mod input;
 
-use crate::input::input_as_string;
 use day_1::*;
 use day_2::*;
 use day_3::*;
@@ -17,25 +15,30 @@ use day_5::*;
 
 fn main() {
     println!("Day 1");
-    day_1();
-    println!();
+    let day_1_input = String::from_utf8_lossy(include_bytes!("../input/day_1.txt"));
+    let (max, top_three) = day_1(&day_1_input);
+    println!("{}\n{}\n", max, top_three);
 
     println!("Day 2");
-    println!("{}", day_2_1(input_as_string("day_2.txt")));
-    println!("{}", day_2_2(input_as_string("day_2.txt")));
+    let day_2_input = String::from_utf8_lossy(include_bytes!("../input/day_2.txt"));
+    println!("{}", day_2_1(&day_2_input));
+    println!("{}", day_2_2(&day_2_input));
     println!();
 
     println!("Day 3");
-    println!("{}", day_3_1(input_as_string("day_3.txt")));
-    println!("{}", day_3_2(input_as_string("day_3.txt")));
+    let day_3_input = String::from_utf8_lossy(include_bytes!("../input/day_3.txt"));
+    println!("{}", day_3_1(&day_3_input));
+    println!("{}", day_3_2(&day_3_input));
     println!();
 
     println!("Day 4");
-    println!("{}", day_4_1(input_as_string("day_4.txt")));
-    println!("{}", day_4_2(input_as_string("day_4.txt")));
+    let day_4_input = String::from_utf8_lossy(include_bytes!("../input/day_4.txt"));
+    println!("{}", day_4_1(&day_4_input));
+    println!("{}", day_4_2(&day_4_input));
     println!();
 
     println!("Day 5");
-    println!("{}", day_5_1(input_as_string("day_5.txt")));
-    println!("{}", day_5_2(input_as_string("day_5.txt")));
+    let day_5_input = String::from_utf8_lossy(include_bytes!("../input/day_5.txt"));
+    println!("{}", day_5_1(&day_5_input));
+    println!("{}", day_5_2(&day_5_input));
 }

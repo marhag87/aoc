@@ -1,16 +1,15 @@
-use crate::input::input_as_string;
-
-pub(crate) fn day_1() {
-    let mut nums: Vec<i32> = input_as_string("day_1.txt")
+pub(crate) fn day_1(input: &str) -> (u64, u64) {
+    let mut nums: Vec<u64> = input
         .split("\n\n")
         .map(|chunk| {
             chunk
                 .split('\n')
-                .map(|num| num.parse::<i32>().unwrap_or_default())
-                .sum::<i32>()
+                .map(|num| num.parse::<u64>().unwrap_or_default())
+                .sum::<u64>()
         })
         .collect();
-    println!("max = {:?}", nums.iter().max());
     nums.sort();
-    println!("top three = {:?}", nums.iter().rev().take(3).sum::<i32>());
+    let max = nums.iter().max().expect("should have a max");
+    let top_three = nums.iter().rev().take(3).sum::<u64>();
+    (*max, top_three)
 }

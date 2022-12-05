@@ -9,7 +9,7 @@ fn char_to_prio(char: char) -> u64 {
     }
 }
 
-pub(crate) fn day_3_1(input: String) -> u64 {
+pub(crate) fn day_3_1(input: &str) -> u64 {
     input
         .lines()
         .map(|rucksack| {
@@ -31,7 +31,7 @@ pub(crate) fn day_3_1(input: String) -> u64 {
         .sum()
 }
 
-pub(crate) fn day_3_2(input: String) -> u64 {
+pub(crate) fn day_3_2(input: &str) -> u64 {
     input
         .lines()
         .chunks(3)

@@ -1,4 +1,4 @@
-pub(crate) fn day_4_1(input: String) -> usize {
+pub(crate) fn day_4_1(input: &str) -> usize {
     input
         .lines()
         .map(|line| scan_fmt!(line, "{d}-{d},{d}-{d}", u64, u64, u64, u64).expect("should match"))
@@ -8,7 +8,7 @@ pub(crate) fn day_4_1(input: String) -> usize {
         .count()
 }
 
-pub(crate) fn day_4_2(input: String) -> usize {
+pub(crate) fn day_4_2(input: &str) -> usize {
     input
         .lines()
         .map(|line| scan_fmt!(line, "{d}-{d},{d}-{d}", u64, u64, u64, u64).expect("should match"))
