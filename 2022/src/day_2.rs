@@ -54,12 +54,12 @@ pub(crate) fn day_2_2(input: &str) -> u64 {
 
 #[test]
 fn test_example_part_1() {
-    let input = "A Y\nB X\nC Z".to_string();
+    let input = "A Y\nB X\nC Z";
     assert_eq!(day_2_1(input), 15);
 }
 
 #[test]
 fn test_example_part_2() {
-    let input = "A Y\nB X\nC Z".to_string();
+    let input = "A Y\nB X\nC Z";
     assert_eq!(day_2_2(input), 12);
 }
