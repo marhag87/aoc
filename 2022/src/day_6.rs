@@ -1,21 +1,23 @@
 use itertools::Itertools;
 
-pub(crate) fn day_6_1(input: &str) -> usize {
-    let mut n = 3;
-    input.as_bytes().windows(4).any(|window| {
-        n += 1;
-        window.iter().all_unique()
-    });
-    n
+fn find_window(input: &str, window_size: usize) -> usize {
+    if let Some((n, _)) = input
+        .as_bytes()
+        .windows(window_size)
+        .enumerate()
+        .find(|(_, window)| window.iter().all_unique())
+    {
+        n + window_size
+    } else {
+        panic!("No solution found")
+    }
 }
 
+pub(crate) fn day_6_1(input: &str) -> usize {
+    find_window(input, 4)
+}
 pub(crate) fn day_6_2(input: &str) -> usize {
-    let mut n = 13;
-    input.as_bytes().windows(14).any(|window| {
-        n += 1;
-        window.iter().all_unique()
-    });
-    n
+    find_window(input, 14)
 }
 
 #[test]
