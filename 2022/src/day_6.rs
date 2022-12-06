@@ -4,7 +4,7 @@ pub(crate) fn day_6_1(input: &str) -> usize {
     let mut n = 3;
     input.as_bytes().windows(4).any(|window| {
         n += 1;
-        window.iter().unique().count() == 4
+        window.iter().all_unique()
     });
     n
 }
@@ -13,7 +13,7 @@ pub(crate) fn day_6_2(input: &str) -> usize {
     let mut n = 13;
     input.as_bytes().windows(14).any(|window| {
         n += 1;
-        window.iter().unique().count() == 14
+        window.iter().all_unique()
     });
     n
 }
