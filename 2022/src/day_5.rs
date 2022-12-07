@@ -1,16 +1,5 @@
 fn parse_state(input: &str) -> Vec<Vec<char>> {
-    let mut state: Vec<Vec<char>> = vec![
-        vec![], // Empty vec to make instructions match 1-based vec
-        vec![],
-        vec![],
-        vec![],
-        vec![],
-        vec![],
-        vec![],
-        vec![],
-        vec![],
-        vec![],
-    ];
+    let mut state: Vec<Vec<char>> = vec![vec![]; 10];
     input.lines().rev().skip(1).for_each(|line| {
         let mut n = 1;
         line.chars().skip(1).step_by(4).for_each(|char| {
