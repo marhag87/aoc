@@ -8,6 +8,7 @@ mod day_4;
 mod day_5;
 mod day_6;
 mod day_7;
+mod day_8;
 
 use day_1::*;
 use day_2::*;
@@ -16,6 +17,7 @@ use day_4::*;
 use day_5::*;
 use day_6::*;
 use day_7::*;
+use day_8::*;
 
 fn main() {
     println!("Day 1");
@@ -57,6 +59,13 @@ fn main() {
     let day_7_input = String::from_utf8_lossy(include_bytes!("../input/day_7.txt"));
     let (part_1, part_2) = day_7(&day_7_input);
     assert_eq!(part_1, 1084134);
+    println!("{}", part_1);
+    println!("{}", part_2);
+    println!();
+
+    println!("Day 8");
+    let day_8_input = String::from_utf8_lossy(include_bytes!("../input/day_8.txt"));
+    let (part_1, part_2) = day_8(&day_8_input);
     println!("{}", part_1);
     println!("{}", part_2);
 }

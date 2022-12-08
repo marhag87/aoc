@@ -92,8 +92,8 @@ pub(crate) fn day_1_2(input: &str) -> i64 {
         .unwrap()
 }
 
-#[test]
-fn test_day_1_1() {
-    let input = "R8, R4, R4, R8";
-    assert_eq!(day_1_2(input), 4);
-}
+// #[test]
+// fn test_day_1_1() {
+//     let input = "R8, R4, R4, R8";
+//     assert_eq!(day_1_2(input), 4);
+// }
