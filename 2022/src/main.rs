@@ -9,6 +9,7 @@ mod day_5;
 mod day_6;
 mod day_7;
 mod day_8;
+mod day_9;
 
 use day_1::*;
 use day_2::*;
@@ -18,6 +19,7 @@ use day_5::*;
 use day_6::*;
 use day_7::*;
 use day_8::*;
+use day_9::*;
 
 fn main() {
     println!("Day 1");
@@ -68,4 +70,10 @@ fn main() {
     let (part_1, part_2) = day_8(&day_8_input);
     println!("{}", part_1);
     println!("{}", part_2);
+    println!();
+
+    println!("Day 9");
+    let day_9_input = String::from_utf8_lossy(include_bytes!("../input/day_9.txt"));
+    println!("{}", day_9_1(&day_9_input));
+    println!("{}", day_9_2(&day_9_input));
 }
