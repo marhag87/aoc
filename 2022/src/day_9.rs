@@ -19,13 +19,7 @@ fn new_tail_pos(head_x: &isize, head_y: &isize, tail_x: &isize, tail_y: &isize) 
         (2, -2) => (1, -1),
         (-2, 2) => (-1, 1),
         (-2, -2) => (-1, -1),
-        _ => {
-            println!(
-                "({} {}), ({}, {}), ({}, {})",
-                head_x, head_y, tail_x, tail_y, diff_x, diff_y
-            );
-            panic!("invalid position");
-        }
+        _ => panic!("invalid position"),
     };
     (tail_x + x, tail_y + y)
 }
