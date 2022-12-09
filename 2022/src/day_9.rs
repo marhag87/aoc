@@ -54,14 +54,14 @@ fn day_9(input: &str, rope_length: usize) -> usize {
                     *knot_y += y;
                 } else {
                     // Get new pos based on previous knot
-                    (*knot_x, *knot_y) = new_tail_pos(&last_x, &last_y, &knot_x, &knot_y);
+                    (*knot_x, *knot_y) = new_tail_pos(&last_x, &last_y, knot_x, knot_y);
                 };
                 if n == rope_length - 1 {
                     // Last knot, record visit
-                    visited.push((knot_x.clone(), knot_y.clone()));
+                    visited.push((*knot_x, *knot_y));
                 };
-                last_x = knot_x.clone();
-                last_y = knot_y.clone();
+                last_x = *knot_x;
+                last_y = *knot_y;
                 n += 1;
             });
         });
