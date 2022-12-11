@@ -7,7 +7,7 @@ mod day_3;
 // mod day_4;
 mod day_5;
 // mod day_6;
-// mod day_7;
+mod day_7;
 
 fn main() {
     println!("Day 1");
@@ -45,9 +45,9 @@ fn main() {
     // println!("{}", day_6::day_6_2(&input));
     // println!();
 
-    // println!("Day 7");
-    // let input = String::from_utf8_lossy(include_bytes!("../input/day_7.txt"));
-    // println!("{}", day_7::day_7_1(&input));
+    println!("Day 7");
+    let input = String::from_utf8_lossy(include_bytes!("../input/day_7.txt"));
+    println!("{}", day_7::day_7_1(&input));
     // println!("{}", day_7::day_7_2(&input));
     // println!();
 }
