@@ -86,7 +86,6 @@ fn main() {
     let day_10_input = String::from_utf8_lossy(include_bytes!("../input/day_10.txt"));
     println!("{}", day_10_1(&day_10_input));
     println!("{}", day_10_2(&day_10_input));
-    println!();
 
     println!("Day 11");
     let day_11_input = String::from_utf8_lossy(include_bytes!("../input/day_11.txt"));
