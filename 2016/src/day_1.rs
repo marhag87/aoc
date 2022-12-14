@@ -61,34 +61,33 @@ pub(crate) fn day_1_2(input: &str) -> i64 {
     let mut dir = North;
     input
         .lines()
-        .find_map(|line| {
-            Some(
-                line.split(", ")
-                    .find_map(|instruction| {
-                        let mut chars = instruction.chars();
-                        let turn = chars.next().expect("should have a turn");
-                        let length = chars.as_str().parse::<i64>().expect("should be a number");
-                        dir = match turn {
-                            'R' => dir.right(),
-                            'L' => dir.left(),
-                            _ => panic!("invalid direction"),
-                        };
-                        (x, y) = match dir {
-                            North => (x, y + length),
-                            East => (x + length, y),
-                            South => (x, y - length),
-                            West => (x - length, y),
-                        };
-                        if let Some(_) = pos.get(&(x, y)) {
-                            Some(x.abs() + y.abs())
-                        } else {
-                            pos.insert((x, y), 1);
-                            None
-                        }
-                    })
-                    .unwrap(),
-            )
+        .map(|line| {
+            line.split(", ")
+                .find_map(|instruction| {
+                    let mut chars = instruction.chars();
+                    let turn = chars.next().expect("should have a turn");
+                    let length = chars.as_str().parse::<i64>().expect("should be a number");
+                    dir = match turn {
+                        'R' => dir.right(),
+                        'L' => dir.left(),
+                        _ => panic!("invalid direction"),
+                    };
+                    (x, y) = match dir {
+                        North => (x, y + length),
+                        East => (x + length, y),
+                        South => (x, y - length),
+                        West => (x - length, y),
+                    };
+                    if pos.get(&(x, y)).is_some() {
+                        Some(x.abs() + y.abs())
+                    } else {
+                        pos.insert((x, y), 1);
+                        None
+                    }
+                })
+                .unwrap()
         })
+        .next()
         .unwrap()
 }
 
