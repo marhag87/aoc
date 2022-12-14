@@ -1,7 +1,5 @@
 use itertools::Itertools;
-use std::cmp::max;
-use std::cmp::min;
-use std::collections::HashMap;
+use std::{cmp::max, cmp::min, collections::HashMap};
 
 pub(crate) fn day_14(input: &str) -> (usize, usize) {
     // Generate map
