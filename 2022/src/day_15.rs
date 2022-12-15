@@ -52,23 +52,21 @@ pub(crate) fn day_15_2(input: &str, max_search: isize) -> isize {
         .tuples()
         .map(|(sensor_x, sensor_y, beacon_x, beacon_y)| {
             let distance = (sensor_x - beacon_x).abs() + (sensor_y - beacon_y).abs();
-            (sensor_x, sensor_y, beacon_x, beacon_y, distance)
+            (sensor_x, sensor_y, distance)
         })
         .collect::<Vec<_>>();
 
     // Collect all edges of sensors
-    let edges = circles
-        .iter()
-        .map(|(x, y, _, _, distance)| {
-            (*x..=*x + distance)
-                .zip((*y..=*y + distance).rev())
-                .chain((*x..*x + distance).zip(*y - distance..*y))
-                .chain((*x - distance..*x).zip(*y..*y + distance))
-                .chain((*x - distance + 1..*x).zip((*y - distance..*y).rev()))
-                .collect::<Vec<_>>()
-        })
-        .flatten()
-        .collect::<Vec<(isize, isize)>>();
+    let mut edges = vec![];
+    circles.iter().for_each(|(x, y, distance)| {
+        for i_x in x - distance..=x + distance {
+            let diff_x = i_x - x;
+            let i_y = y + diff_x.abs() - distance;
+            let i_y_2 = y - diff_x.abs() + distance;
+            edges.push((i_x, i_y));
+            edges.push((i_x, i_y_2));
+        }
+    });
 
     // For each edge, check if neighbors are covered
     let mut found = 0;
@@ -78,22 +76,16 @@ pub(crate) fn day_15_2(input: &str, max_search: isize) -> isize {
             .any(|(diff_x, diff_y)| {
                 let x = x + diff_x;
                 let y = y + diff_y;
-                circles
-                    .iter()
-                    .all(|(sensor_x, sensor_y, beacon_x, beacon_y, distance)| {
-                        if (x < 0 || x > max_search) || (y < 0 || y > max_search) {
-                            false // Outside of search scope
-                        } else if beacon_x == &x && beacon_y == &y {
-                            false // On a beacon
-                        } else if sensor_x == &x && sensor_y == &y {
-                            false // On a sensor
-                        } else if (sensor_x - x).abs() + (sensor_y - y).abs() <= *distance {
-                            false // Inside sensor range
-                        } else {
-                            found = (x * 4000000) + y;
-                            true
-                        }
-                    })
+                circles.iter().all(|(sensor_x, sensor_y, distance)| {
+                    if ((x < 0 || x > max_search) || (y < 0 || y > max_search))
+                        || ((sensor_x - x).abs() + (sensor_y - y).abs() <= *distance)
+                    {
+                        false
+                    } else {
+                        found = (x * 4000000) + y;
+                        true
+                    }
+                })
             })
     });
     found

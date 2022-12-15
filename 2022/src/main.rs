@@ -1,5 +1,3 @@
-use std::time::Instant;
-
 #[macro_use]
 extern crate scan_fmt;
 
@@ -109,10 +107,6 @@ fn main() {
 
     println!("Day 15");
     let input = String::from_utf8_lossy(include_bytes!("../input/day_15.txt"));
-    let now = Instant::now();
     println!("{}", day_15::day_15_1(&input, 2000000));
-    println!("{:?}", now.elapsed());
-    let now = Instant::now();
     println!("{}", day_15::day_15_2(&input, 4000000));
-    println!("{:?}", now.elapsed());
 }
