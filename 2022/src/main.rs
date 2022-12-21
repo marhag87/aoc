@@ -129,5 +129,5 @@ fn main() {
     println!("Day 21");
     let input = String::from_utf8_lossy(include_bytes!("../input/day_21.txt"));
     println!("{}", day_21::day_21_1(&input));
-    // println!("{}", day_21::day_21_2(&input));
+    println!("{}", day_21::day_21_2(&input));
 }
