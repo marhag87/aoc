@@ -8,9 +8,9 @@ pub(crate) fn day_21_1(input: &str) -> usize {
             let (monkey, instruction) = line.split_once(": ").unwrap();
             if let Ok(number) = instruction.parse::<usize>() {
                 monkeys.insert(monkey, number);
-                return None;
+                None
             } else {
-                return Some((monkey, instruction));
+                Some((monkey, instruction))
             }
         })
         .collect::<VecDeque<(&str, &str)>>();
@@ -44,9 +44,9 @@ pub(crate) fn day_21_2(input: &str) -> usize {
             let (monkey, instruction) = line.split_once(": ").unwrap();
             if let Ok(number) = instruction.parse::<usize>() {
                 monkeys.insert(monkey, number);
-                return None;
+                None
             } else {
-                return Some((monkey, instruction));
+                Some((monkey, instruction))
             }
         })
         .collect::<VecDeque<(&str, &str)>>();
