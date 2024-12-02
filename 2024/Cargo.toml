@@ -7,4 +7,9 @@ edition = "2021"
 name = "aoc_2024_1"
 path = "src/day_1.rs"
 
+[[bin]]
+name = "aoc_2024_2"
+path = "src/day_2.rs"
+
 [dependencies]
+itertools = "0.13"
