@@ -8,7 +8,6 @@ fn main() {
 
 fn day_1_1(input: &str) -> usize {
     let (first_list, second_list) = parse(input);
-
     first_list
         .into_iter()
         .zip(second_list)
@@ -18,15 +17,11 @@ fn day_1_1(input: &str) -> usize {
 
 fn day_1_2(input: &str) -> usize {
     let (first_list, second_list) = parse(input);
-
     first_list
-        .into_iter()
+        .iter()
         .map(|first| {
-            let count = second_list
-                .iter()
-                .filter(|second| &&first == second)
-                .count();
-            first * count
+            let second_count = second_list.iter().filter(|second| &first == second).count();
+            first * second_count
         })
         .sum()
 }
@@ -36,10 +31,8 @@ fn parse(input: &str) -> (Vec<usize>, Vec<usize>) {
     let mut second_list = Vec::new();
     input.lines().for_each(|line| {
         let mut split = line.split_ascii_whitespace();
-        let first = split.next().unwrap();
-        let first = first.parse::<usize>().unwrap();
-        let second = split.next().unwrap();
-        let second = second.parse::<usize>().unwrap();
+        let first = split.next().unwrap().parse::<usize>().unwrap();
+        let second = split.next().unwrap().parse::<usize>().unwrap();
         first_list.push(first);
         second_list.push(second);
     });
@@ -68,4 +61,16 @@ fn test_day_1_2() {
     3   9
     3   3"#;
     assert_eq!(day_1_2(input), 31);
+}
+
+#[test]
+fn test_day_1_1_answer() {
+    let input = String::from_utf8_lossy(include_bytes!("../input/day_1.txt"));
+    assert_eq!(day_1_1(&input), 1938424);
+}
+
+#[test]
+fn test_day_1_2_answer() {
+    let input = String::from_utf8_lossy(include_bytes!("../input/day_1.txt"));
+    assert_eq!(day_1_2(&input), 22014209);
 }

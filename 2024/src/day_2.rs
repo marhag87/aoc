@@ -11,16 +11,12 @@ fn main() {
 fn day_2_1(input: &str) -> usize {
     input
         .lines()
-        .filter_map(|line| {
+        .filter(|line| {
             let split = line.split_ascii_whitespace();
             let numbers = split
                 .map(|num| num.parse::<usize>().unwrap())
                 .collect::<Vec<usize>>();
-            if level_is_safe(numbers) {
-                Some(true)
-            } else {
-                None
-            }
+            level_is_safe(numbers)
         })
         .count()
 }
@@ -28,7 +24,7 @@ fn day_2_1(input: &str) -> usize {
 fn day_2_2(input: &str) -> usize {
     input
         .lines()
-        .filter_map(|line| {
+        .filter(|line| {
             let split = line.split_ascii_whitespace();
             let numbers = split
                 .map(|num| num.parse::<usize>().unwrap())
@@ -39,13 +35,7 @@ fn day_2_2(input: &str) -> usize {
                 numbers.remove(i);
                 numbers_mutations.push(numbers);
             }
-
-            let any_safe = numbers_mutations.into_iter().any(level_is_safe);
-            if any_safe {
-                Some(true)
-            } else {
-                None
-            }
+            numbers_mutations.into_iter().any(level_is_safe)
         })
         .count()
 }
