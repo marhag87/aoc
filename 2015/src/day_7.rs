@@ -127,5 +127,5 @@ pub(crate) fn day_7_1(input: &str) -> usize {
             }
         });
     }
-    registers.get(&"a".to_string()).unwrap().unwrap()
+    registers.get(&String::from("a")).unwrap().unwrap()
 }

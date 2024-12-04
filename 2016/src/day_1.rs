@@ -1,4 +1,4 @@
-use std::collections::HashMap;
+use std::collections::{hash_map::Entry, HashMap};
 
 enum Direction {
     North,
@@ -78,11 +78,11 @@ pub(crate) fn day_1_2(input: &str) -> i64 {
                         South => (x, y - length),
                         West => (x - length, y),
                     };
-                    if pos.get(&(x, y)).is_some() {
-                        Some(x.abs() + y.abs())
-                    } else {
-                        pos.insert((x, y), 1);
+                    if let Entry::Vacant(e) = pos.entry((x, y)) {
+                        e.insert(1);
                         None
+                    } else {
+                        Some(x.abs() + y.abs())
                     }
                 })
                 .unwrap()
