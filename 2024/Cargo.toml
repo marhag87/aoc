@@ -15,6 +15,10 @@ path = "src/day_2.rs"
 name = "aoc_2024_3"
 path = "src/day_3.rs"
 
+[[bin]]
+name = "aoc_2024_4"
+path = "src/day_4.rs"
+
 [dependencies]
 itertools = "0.13"
 regex = "1.11"
